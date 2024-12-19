@@ -45,8 +45,7 @@ values and context.
 
 Example Data: 
 
-https://www.hunter.cuny.edu/dolciani/pdf_files/workshop-materials/mmc
-presentations/tables-charts-and-graphs-with-examples-from.pdf 
+https://www.hunter.cuny.edu/dolciani/pdf_files/workshop-materials/mmcpresentations/tables-charts-and-graphs-with-examples-from.pdf 
 
 Extract accurate information: 
 

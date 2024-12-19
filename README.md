@@ -1,33 +1,97 @@
-To describe the tasks in Sitafal (a framework or platform, if you mean something specific), here's an overview of how each task can be broken down in terms of their functionalities:
+Task 1: Chat with PDF Using RAG Pipeline 
 
-Task 1: Chat with PDF Using RAG Pipeline
-In Sitafal, you would implement the Retrieval-Augmented Generation (RAG) pipeline for processing semi-structured data within PDFs. The functional flow can be as follows:
+Overview:
 
-1. Data Ingestion
-Process: Extract text from PDF files (e.g., tables, charts, and graphs). Break down the content into smaller chunks for easier access and relevance. Use a pre-trained embedding model to generate vector embeddings from these chunks. Store the embeddings in a vector database for efficient retrieval.
-2. Query Handling
-Process: When a user asks a question, their query is also converted into vector embeddings using the same model. A similarity search is conducted within the vector database to retrieve the most relevant chunks. These chunks are then passed to an LLM (Language Model) for response generation, augmented with the extracted data.
-3. Comparison Queries
-Process: For comparison-based queries, the system identifies the relevant fields or terms from multiple PDF files. It aggregates the data, compares it, and presents the results in a structured format (tabular or bullet points).
-4. Response Generation
-Process: Using the retrieved data and the user's query, the system generates a context-rich, factual response using the LLM, ensuring that the response is accurate and relevant.
-Example PDF Data:
+The goal is to implement a Retrieval-Augmented Generation (RAG) pipeline that allows users to 
+interact with semi-structured data in multiple PDF files. The system should extract, chunk, 
+embed, and store the data for e icient retrieval. It will answer user queries and perform 
+comparisons accurately, leveraging the selected LLM model for generating responses. 
 
-From page 2, extract unemployment information based on the degree type.
-From page 6, extract tabular data.
-Task 2: Chat with Website Using RAG Pipeline
-The goal for the website RAG pipeline is similar: scrape, store, and generate responses based on the extracted content from websites.
+Functional Requirements:
 
-1. Data Ingestion
-Process: Use crawlers to scrape content from target websites (e.g., University pages like UChicago, Stanford). Extract relevant fields, metadata, and textual content. Segment this information into chunks and convert them into vector embeddings for efficient search and retrieval.
-2. Query Handling
-Process: Convert the user’s query into vector embeddings. Perform a similarity search in the vector database to retrieve the most relevant content from the scraped websites. Use the LLM to generate a response by augmenting it with the relevant context from the retrieved data.
-3. Response Generation
-Process: After retrieving the relevant information from the vector database, the system generates a response that is factually accurate and provides detailed context from the websites.
-Example Websites:
+1.Data Ingestion:
+  Input: PDF files containing semi-structured data.
+  Process: 
+   Extract text and relevant structured information from PDF files. 
+   Segment data into logical chunks for better granularity. 
+   Convert chunks into vector embeddings using a pre-trained embedding model. 
+   Store embeddings in a vector database for e icient similarity-based retrieval. 
 
-UChicago: https://www.uchicago.edu/
-Stanford: https://www.stanford.edu/
-Washington: https://www.washington.edu/
-UND: https://und.edu/
-In Sitafal, you can implement these pipelines to efficiently process and query structured and unstructured data, enhancing user interactions by delivering context-aware, fact-based responses.
+2.Query Handling:
+  Input: User's natural language question. 
+  Process: 
+   Convert the user's query into vector embeddings using the same embedding 
+model. 
+   Perform a similarity search in the vector database to retrieve the most relevant 
+chunks.
+   Pass the retrieved chunks to the LLM along with a prompt or agentic context to 
+generate a detailed response. 
+
+3.Comparison Queries 
+  Input: User's query asking for a comparison  
+  Process: 
+   Identify and extract the relevant terms or fields to compare across multiple PDF 
+files. 
+   Retrieve the corresponding chunks from the vector database. 
+   Process and aggregate data for comparison. 
+   Generate a structured response (e.g., tabular or bullet-point format). 
+
+4.Response Generation:
+  Input: Relevant information retrieved from the vector database and the user query. 
+  Process: 
+   Use the LLM with retrieval-augmented prompts to produce responses with exact 
+values and context. 
+   Ensure factuality by incorporating retrieved data directly into the response. 
+
+Example Data: 
+
+https://www.hunter.cuny.edu/dolciani/pdf_files/workshop-materials/mmc
+presentations/tables-charts-and-graphs-with-examples-from.pdf 
+
+Extract accurate information: 
+
+1. From page 2 get the exact unemployment information based on type of degree input 
+2. From page 6 get the tabular data  
+
+Task 2: Chat with Website Using RAG Pipeline 
+
+Overview: 
+
+The goal is to implement a Retrieval-Augmented Generation (RAG) pipeline that allows users to 
+interact with structured and unstructured data extracted from websites. The system will crawl, 
+scrape, and store website content, convert it into embeddings, and store it in a vector database.Users can query the system for information and receive accurate, context-rich responses generated by a selected LLM. 
+
+Functional Requirements: 
+
+1.Data Ingestion:
+  Input: URLs or list of websites to crawl/scrape. 
+  Process: 
+   Crawl and scrape content from target websites. 
+   Extract key data fields, metadata, and textual content. 
+   Segment content into chunks for better granularity. 
+   Convert chunks into vector embeddings using a pre-trained embedding model. 
+   Store embeddings in a vector database with associated metadata for e icient 
+retrieval. 
+
+2.Query Handling:
+  Input: User's natural language question. 
+  Process:  
+   Convert the user's query into vector embeddings using the same embedding 
+model. 
+   Perform a similarity search in the vector database to retrieve the most relevant 
+chunks. 
+   Pass the retrieved chunks to the LLM along with a prompt or agentic context to 
+generate a detailed response.
+
+3.Response Generation:
+  Input: Relevant information retrieved from the vector database and the user query. 
+  Process: 
+   Use the LLM with retrieval-augmented prompts to produce responses with exact 
+values and context. 
+   Ensure factuality by incorporating retrieved data directly into the response. 
+
+Example website links :  
+https://www.uchicago.edu/ 
+https://www.washington.edu/ 
+https://www.stanford.edu/ 
+https://und.edu/

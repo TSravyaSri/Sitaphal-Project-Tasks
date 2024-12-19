@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Query Extractor</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Query Extractor</h1>
+
+        <!-- Form Section -->
+        <form action="/" method="POST" enctype="multipart/form-data" id="pdfForm">
+            <label for="file">Upload PDF:</label>
+            <input type="file" name="file" id="file" required>
+        
+            <label for="query">Enter Query:</label>
+            <input type="text" name="query" id="query" required>
+        
+            <button type="submit" id="submitBtn">
+                <span id="buttonText">Submit</span>
+                <div class="spinner" id="spinner" style="display: none;"></div>
+            </button>
+        </form>
+        
+
+        <!-- Loading Message -->
+        <div id="loading-message" class="loading-message" style="display: none;">
+            Please wait...
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message" style="display: none;">
+            Please select a PDF file and enter a query!
+        </div>
+
+        <!-- Result Section -->
+        {% if query_section %}
+        <div class="result-container">
+            <h2>Extracted Information:</h2>
+            <div class="result-box">
+                <p>{{ query_section }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- JavaScript -->
+    <script src="static/script.js"></script>
+</body>
+</html>
